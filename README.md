@@ -12,3 +12,5 @@ on the setup of your computer or computing cluster.
 * `OUTPUT FOLDER`: The process will create a `Unaligned` folder inside the `OUTPUT FOLDER` you specifiy here. The `Unaligned` contains all **Fastq** files.
 
 ## Troubleshooting
+* If you want to access the container after running (maybe for debugging), do not use `--rm=true` argument.
+* use `docker logs bcl2fastq` to access the log files.

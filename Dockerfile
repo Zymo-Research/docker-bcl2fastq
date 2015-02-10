@@ -10,5 +10,7 @@ RUN rm -rf /tmp/bcl2fastq-1.8.4-Linux-x86_64.rpm
 
 VOLUME /run /output
 WORKDIR /run
+ENV cpu_num=1
 
-CMD configureBclToFastq.pl --input-dir /run/Data/Intensities/BaseCalls/ --no-eamss --fastq-cluster-count 0 --mismatches 1 --with-failed-reads --force -o /output/Unaligned/
+ADD run_bcl2fastq.sh /
+CMD /run_bcl2fastq.sh

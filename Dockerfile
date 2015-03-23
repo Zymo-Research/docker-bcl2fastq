@@ -14,4 +14,5 @@ WORKDIR /run
 ENV cpu_num=1
 
 ADD run_bcl2fastq.sh /
+RUN chmod 755 /run_bcl2fastq.sh
 CMD /run_bcl2fastq.sh

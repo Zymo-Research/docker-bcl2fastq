@@ -2,7 +2,7 @@
 
 configureBclToFastq.pl \
 --input-dir /run/Data/Intensities/BaseCalls/ \
--o /output/Unaligned/
+-o /output/Unaligned/ \
 --no-eamss \
 --fastq-cluster-count 0 \
 --mismatches 1 \

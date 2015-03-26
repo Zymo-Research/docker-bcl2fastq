@@ -9,4 +9,4 @@ configureBclToFastq.pl \
 --with-failed-reads \
 --force &&
 
-make -c /output/Unaligned/ -j $cpu_num
+make -C /output/Unaligned/ -j $cpu_num

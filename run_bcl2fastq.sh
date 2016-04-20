@@ -8,7 +8,7 @@ configureBclToFastq.pl \
 --mismatches 1 \
 --with-failed-reads \
 #Modify this later
-#--use-bases-mask Y251,Y8,Y251,Y8 \
+--use-bases-mask Y251,Y8,Y251,Y8 \
 --force &&
 
 make -C /output/Unaligned/ -j $cpu_num

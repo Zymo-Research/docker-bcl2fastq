@@ -16,20 +16,8 @@ on the setup of your computer or computing cluster.
 * use `docker logs bcl2fastq` to access the log files.
 
 ## Note
-Incase a flow cell contains samples with different index length (say 8 and 10), separate the sample sheet into 8 length index samples and 10 length index samples. Then run the docker as it but instead with -it and bash so that you are in interactive mode. Then modify the run_bcl2fastq.sh script in the main folder to the following:
+Incase a flow cell contains samples with different index length (say 8 and 10), separate the sample sheet into 8 length index samples and 10 length index samples. Then run the docker as it but instead with -it and bash so that you are in interactive mode. Then modify the run_bcl2fastq.sh script in the main folder to include the following line:
 
-#!/bin/bash
-
-configureBclToFastq.pl \
---input-dir /run/Data/Intensities/BaseCalls/ \
--o /output/Unaligned/ \
---no-eamss \
---fastq-cluster-count 0 \
---mismatches 1 \
---with-failed-reads \
 --use-bases-mask Y*,I8n,Y* \
---force &&
-
-make -C /output/Unaligned/ -j $cpu_num
 
 --use-bases-mask Y*,I8n,Y* \ indicates you want to use 8 base indexes instead of an expected length that is different (if its mixed with 10 base indexes, the length expected is 10). 

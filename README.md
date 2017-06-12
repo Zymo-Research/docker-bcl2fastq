@@ -19,6 +19,7 @@ on the setup of your computer or computing cluster.
 Incase a flow cell contains samples with different index length (say 8 and 10), separate the sample sheet into 8 length index samples and 10 length index samples. Then run the docker as it but instead with -it and bash so that you are in interactive mode. Then modify the run_bcl2fastq.sh script in the main folder to include the following line:
 
 --use-bases-mask Y*,I8n,Y* \
+--use-bases-mask Y50n,I6n,Y50n \
 
 --use-bases-mask Y*,I8n,Y* \ indicates you want to use 8 base indexes instead of an expected length that is different (if its mixed with 10 base indexes, the length expected is 10). 
 

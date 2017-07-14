@@ -25,4 +25,6 @@ For MiSeq,bcl2fastq specify cycle number
 
 For Microbiomics samples, set mismatch to 0.
 
-MiniSeq and MiSeq can be processed by by the new bcl2fastq version 2.17 too. 
+MiniSeq and MiSeq can be processed by by the new bcl2fastq version 2.17 too.
+
+For any issues run the docker container in -it and bash mode instead of -d mode. 

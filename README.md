@@ -11,6 +11,9 @@ on the setup of your computer or computing cluster.
 * `<RUN FOLDER>`: The full path of the run folder. E.g. ``.
 * `OUTPUT FOLDER`: The process will create a `Unaligned` folder inside the `OUTPUT FOLDER` you specifiy here. The `Unaligned` contains all **Fastq** files.
 
+## Sample Sheet
+* Get the sample sheet from Darany, check the barcodes with the ones on the website. The rename the sample sheet file to SampleSheet.csv and store in the Data/Intensties/BaseCalls/ folder inside the run folder on huntervm. This is the default location of the sample sheet file.
+
 ## Troubleshooting
 * If you want to access the container after running (maybe for debugging), do not use `--rm=true` argument.
 * use `docker logs bcl2fastq` to access the log files.

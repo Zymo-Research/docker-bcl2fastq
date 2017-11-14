@@ -23,6 +23,7 @@ RUN curl --remote-name -s ftp://webdata:webdata@ussd-ftp.illumina.com/Downloads/
 
 ENV RUN_FOLDER /mnt/run
 ENV OUTPUT_FOLDER /mnt/output
+ENV MISMATCHES 1
 ENV CPU_NUM 4
 
 # when passing the -u option in 'docker run' command, it can override the
@@ -37,7 +38,7 @@ CMD /usr/local/bin/configureBclToFastq.pl \
     --input-dir $RUN_FOLDER/Data/Intensities/BaseCalls/ \
     --output-dir $OUTPUT_FOLDER/Unaligned \
     --fastq-cluster-count 0 \
-    --mismatches 1 \
+    --mismatches $MISMATCHES \
     --no-eamss \
     --with-failed-reads \
  && make -j $CPU_NUM -C $OUTPUT_FOLDER/Unaligned/

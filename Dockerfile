@@ -40,6 +40,5 @@ CMD /usr/local/bin/configureBclToFastq.pl \
     --mismatches 1 \
     --no-eamss \
     --with-failed-reads \
-    --force \
  && make -j $CPU_NUM -C $OUTPUT_FOLDER/Unaligned/
 

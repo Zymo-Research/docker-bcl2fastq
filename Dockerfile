@@ -12,8 +12,8 @@ MAINTAINER Mingda Jin
 
 # install tini - a tiny 'init' process (PID 1) for containers
 # https://github.com/krallin/tini/issues/8
-ADD https://github.com/krallin/tini/releases/download/v0.16.1/tini /usr/local/bin/tini
-RUN chmod +x /usr/local/bin/tini
+#ADD https://github.com/krallin/tini/releases/download/v0.16.1/tini /usr/local/bin/tini
+#RUN chmod +x /usr/local/bin/tini
 
 # install bcl2fastq
 RUN curl --remote-name -s ftp://webdata:webdata@ussd-ftp.illumina.com/Downloads/Software/bcl2fastq/bcl2fastq-1.8.4-Linux-x86_64.rpm \
@@ -29,9 +29,9 @@ ENV CPU_NUM 4
 # USER instruction, otherwise run as root.
 USER 0
 
-WORKDIR $RUN_FOLDER
+#WORKDIR $RUN_FOLDER
 
-ENTRYPOINT ["tini", "--"]
+#ENTRYPOINT ["tini", "--"]
 
 CMD /usr/local/bin/configureBclToFastq.pl \
     --input-dir $RUN_FOLDER/Data/Intensities/BaseCalls/ \

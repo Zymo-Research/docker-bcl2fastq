@@ -4,7 +4,7 @@
 
 ## Quick Start
 
-Make sure the user that runs `docker run` command on host machine has read permission to `<run folder>` and read/write permission to `<output folder>`.
+Make sure `SampleSheet.csv` is located under `<run folder>/Data/Intensities/BaseCalls/`, and the user that runs `docker run` command on host machine has read permission to `<run folder>` and read/write permission to `<output folder>`.
 
 ```bash
 docker run -d --name bcl2fastq \

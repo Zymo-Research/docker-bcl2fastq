@@ -30,7 +30,7 @@ make -j 4 -C /mnt/output/Unaligned/
 
 ### Modify the extent of parallelization
 
-Override the default setting (default: 4) by passing an environment variable `CPU_NUM` to `docker run` command. This equivalent to running `make -j $CPU_NUM` command for bcl conversion and demultiplexing.
+Override the default setting (default: 4) by passing an environment variable `CPU_NUM` to `docker run` command. This is equivalent to running `make -j $CPU_NUM` for bcl conversion and demultiplexing in container.
 
 ```bash
 docker run -d --name bcl2fastq \

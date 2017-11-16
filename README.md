@@ -1,8 +1,8 @@
-# Bcl2fastq-1.8.4
+# Dockerized Bcl2fastq-1.8.4
 
 ## Quick Start
 
-Make sure the user that runs `docker run` command on host machine has read permission of `<run folder>` and read/write permission of `<output folder>`.
+Make sure the user that runs `docker run` command on host machine has read permission to `<run folder>` and read/write permission to `<output folder>`.
 
 ```bash
 docker run -d --name bcl2fastq \
@@ -12,10 +12,10 @@ docker run -d --name bcl2fastq \
     zymoresearch/bcl2fastq
 ```
 
-Replace `<run folder>` and `<output folder>` with the real directory names on host machine. The name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. This would run the following `bcl2fastq` command in container.
+Replace `<run folder>` and `<output folder>` with the real directory names on host machine. The name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. This will execute the default `bcl2fastq` command in a container.
 
 ```bash
-sh -c /usr/local/bin/configureBclToFastq.pl \
+/usr/local/bin/configureBclToFastq.pl \
     --input-dir /mnt/run/Data/Intensities/BaseCalls/ \
     --output-dir /mnt/output/Unaligned \
     --fastq-cluster-count 0 \

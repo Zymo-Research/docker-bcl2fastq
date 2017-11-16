@@ -56,7 +56,7 @@ docker run -d --name bcl2fastq \
 
 ### Custom Bcl2fastq command
 
-You can run your own `bcl2fastq` command by specifying arguments to `docker run`. Please notice that a complete command  for bcl conversion and demultiplexing should consist of both `configureBclToFastq.pl` and `make`. For example:
+You can run your own `bcl2fastq` command by specifying arguments to `docker run`. Please note that a complete command  for bcl conversion and demultiplexing should consist of both `configureBclToFastq.pl` and `make`. For example:
 
 ```bash
 docker run -d --name bcl2fastq \
@@ -71,7 +71,7 @@ docker run -d --name bcl2fastq \
     make -j 4 -C /mnt/output
 ```
 
-**Alternatively**, you can run an interactive shell first in the image.
+**Alternatively**, you can first start an interactive bash session.
 
 ```bash
 docker run -it --name bcl2fastq\

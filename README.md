@@ -14,7 +14,7 @@ docker run -d --name bcl2fastq \
     zymoresearch/bcl2fastq
 ```
 
-Replace `<run folder>` and `<output folder>` with the real directory names on host machine. The name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. This will execute the default `bcl2fastq` command in a container.
+Replace `<run folder>` and `<output folder>` with the real directory names on host machine. The name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. This will execute the following `bcl2fastq` command in a container.
 
 ```bash
 /usr/local/bin/configureBclToFastq.pl \

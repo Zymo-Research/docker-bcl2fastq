@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-Replace `<run folder>` and `<output folder>` with the real directory names on host machine. Normally the name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. Make sure the user that runs `docker run` command on host machine has the read permission to `<run folder>` and the read/write permission to `<output folder>`.
+Make sure the user that runs `docker run` command on host machine has read permission of `<run folder>` and read/write permission of `<output folder>`.
 
 ```bash
 docker run -d --name bcl2fastq \
@@ -12,7 +12,7 @@ docker run -d --name bcl2fastq \
     zymoresearch/bcl2fastq
 ```
 
-This would run the following `bcl2fastq` command in container.
+Replace `<run folder>` and `<output folder>` with the real directory names on host machine. The name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. This would run the following `bcl2fastq` command in container.
 
 ```bash
 sh -c /usr/local/bin/configureBclToFastq.pl \

@@ -2,6 +2,8 @@
 
 # Dockerized Bcl2fastq-1.8.4
 
+You can refer to the official [Bcl2fastq User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq_letterbooklet_15038058brpmi.pdf) for more information.
+
 ## Quick Start
 
 Make sure `SampleSheet.csv` is located under `<run folder>/Data/Intensities/BaseCalls/`, and the user that runs `docker run` command on host machine has read permission to `<run folder>` and read/write permission to `<output folder>`.
@@ -32,7 +34,7 @@ make -j 4 -C /mnt/output/Unaligned/
 
 ## Docker Options
 
-You can configure the execution of `bcl2fastq` with the following optional arguments.
+You can configure the execution of `bcl2fastq` with the following Docker options.
 
 * `-e "CPU_NUM=4"` - Specify the extent of parallelization, with the options depending on the setup of your computer or computing cluster.
 

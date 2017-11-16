@@ -30,35 +30,16 @@ make -j 4 -C /mnt/output/Unaligned/
 **It is strongly recommended to include `-u $( id -u $USER ):$( id -g $USER )` in `docker run` command.** This will make container switch to the user with the same UID and GID as the current user on host machine. However, if `id` command is not available on your operating system, UID and GID can also be passed to container statically with `-u` like `-u 1001:1001`. If no user is specified at runtime, programs will run as root in a container, which may cause some security vulnerabilities.
 
 
-## Modify Bcl2fastq Command
+## Docker Options
 
-### Modify the extent of parallelization
+You can configure the execution of `bcl2fastq` with the following optional arguments.
 
-Override the default setting (default: 4) by passing an environment variable `CPU_NUM` to `docker run` command. This is equivalent to running `make -j $CPU_NUM` for bcl conversion and demultiplexing in container.
+* `-e "CPU_NUM=4"` - Specify the extent of parallelization, with the options depending on the setup of your computer or computing cluster.
 
-```bash
-docker run -d --name bcl2fastq \
-    -e "CPU_NUM=8" \
-    -u $( id -u $USER ):$( id -g $USER ) \
-    -v <run folder>:/mnt/run \
-    -v <output folder>:/mnt/output \
-    zymoresearch/bcl2fastq
-```
+* `-e "MISMATCHES=1"` - Comma-delimited list of number of mismatches allowed for each read (for example: 1,1). If a single value is provide, all index reads will allow the same number mismatches.
 
-### Modify the number of mismatches allowed for each index read
 
-Override the default setting (default: 1) by passing an environment variable `MISMATCHES` to `docker run` command. This can dynamically modify the `--mismatches` option of `configureBclToFastq.pl` command executed in container.
-
-```bash
-docker run -d --name bcl2fastq \
-    -e "MISMATCHES=0" \
-    -u $( id -u $USER ):$( id -g $USER ) \
-    -v <run folder>:/mnt/run \
-    -v <output folder>:/mnt/output \
-    zymoresearch/bcl2fastq
-```
-
-### Custom Bcl2fastq command
+## Custom Bcl2fastq Command
 
 You can run your own `bcl2fastq` command by specifying arguments to `docker run`. Please note that a complete command  for bcl conversion and demultiplexing should consist of both `configureBclToFastq.pl` and `make`. For example:
 

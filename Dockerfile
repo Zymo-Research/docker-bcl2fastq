@@ -5,7 +5,7 @@ FROM centos:7
 
 MAINTAINER Mingda Jin
 
-RUN curl --remote-name -s ftp://webdata:webdata@ussd-ftp.illumina.com/Downloads/Software/bcl2fastq/bcl2fastq-1.8.4-Linux-x86_64.rpm \
+RUN curl -OsSL ftp://webdata:webdata@ussd-ftp.illumina.com/Downloads/Software/bcl2fastq/bcl2fastq-1.8.4-Linux-x86_64.rpm \
  && yum -y --nogpgcheck install bcl2fastq-1.8.4-Linux-x86_64.rpm \
  && yum clean all \
  && rm -f bcl2fastq-1.8.4-Linux-x86_64.rpm
@@ -20,7 +20,7 @@ ENV CPU_NUM 4
 # Although this is equivalent to passing the --init flag to 'docker run' command in Docker 1.13
 # and higher, installing tini is still needed if user is using old Docker versions. This can also
 # enforce containers running with a init process regardless of using the --init flag.
-RUN curl -o /usr/local/bin/tini https://github.com/krallin/tini/releases/download/v0.16.1/tini \
+RUN curl -o /usr/local/bin/tini -sSL https://github.com/krallin/tini/releases/download/v0.16.1/tini \
  && chmod +x /usr/local/bin/tini
 
 ENTRYPOINT ["/usr/local/bin/tini", "--"]

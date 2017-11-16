@@ -100,4 +100,4 @@ Use `ctrl-p + ctrl-q` to detach the tty without exiting the shell.
 
 ## Note
 
-* Run `docker logs <container name>` to fetch the logs of a container, and run `docker logs -f <container name>` to follow container log output real-time.
+* Run `docker logs <container name>` to fetch the logs of a container. Run `docker logs -f <container name>` to follow container log output real-time.

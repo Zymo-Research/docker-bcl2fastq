@@ -27,7 +27,7 @@ Replace `<run folder>` and `<output folder>` with the real directory names on ho
 make -j 4 -C /mnt/output/Unaligned/
 ```
 
-**It is strongly recommanded to include `-u $( id -u $USER ):$( id -g $USER )` in `docker run` command.** This will make container switch to the user with the same UID and GID as the current user on host machine. However, if `id` command is not available on your operating system, UID and GID can also be passed to container statically with `-u` like `-u 1001:1001`. If no user is specified at runtime, programs will run as root in a container, which may cause some security vulnerabilities.
+**It is strongly recommended to include `-u $( id -u $USER ):$( id -g $USER )` in `docker run` command.** This will make container switch to the user with the same UID and GID as the current user on host machine. However, if `id` command is not available on your operating system, UID and GID can also be passed to container statically with `-u` like `-u 1001:1001`. If no user is specified at runtime, programs will run as root in a container, which may cause some security vulnerabilities.
 
 
 ## Modify Bcl2fastq Command

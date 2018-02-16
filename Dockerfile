@@ -32,7 +32,6 @@ ENTRYPOINT ["/usr/local/bin/tini", "--"]
 CMD /usr/local/bin/bcl2fastq \
     --runfolder-dir $RUN_FOLDER \
     --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-    --fastq-cluster-count 0 \
     --barcode-mismatches $MISMATCHES \
     --with-failed-reads
 

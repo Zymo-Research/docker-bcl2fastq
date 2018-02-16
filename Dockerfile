@@ -2,9 +2,10 @@ FROM centos:7
 
 MAINTAINER Mingda Jin
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN yum update -y \
+ && yum install -y \
         unzip \
- && rm -rf /var/lib/apt/lists/*
+ && yum clean all
 
 RUN curl -OsSL ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2.17.1.14-Linux-x86_64.zip \
  && unzip bcl2fastq2-v2.17.1.14-Linux-x86_64.zip \
@@ -13,10 +14,10 @@ RUN curl -OsSL ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/
  && rm -f bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm \
  && rm -f bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
 
-#ENV RUN_FOLDER /mnt/run
-#ENV OUTPUT_FOLDER /mnt/output
-#ENV MISMATCHES 1
-#ENV CPU_NUM 4
+ENV RUN_FOLDER /mnt/run
+ENV OUTPUT_FOLDER /mnt/output
+ENV MISMATCHES 1
+ENV CPU_NUM 4
 
 # install tini - a tiny init process (PID 1) for containers
 # https://github.com/krallin/tini

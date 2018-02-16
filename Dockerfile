@@ -17,7 +17,7 @@ RUN curl -OsSL ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/
 ENV RUN_FOLDER /mnt/run
 ENV OUTPUT_FOLDER /mnt/output
 ENV MISMATCHES 1
-ENV CPU_NUM 4
+#ENV CPU_NUM 4
 
 # install tini - a tiny init process (PID 1) for containers
 # https://github.com/krallin/tini
@@ -27,14 +27,12 @@ ENV CPU_NUM 4
 RUN curl -o /usr/local/bin/tini -sSL https://github.com/krallin/tini/releases/download/v0.16.1/tini \
  && chmod +x /usr/local/bin/tini
 
-#ENTRYPOINT ["/usr/local/bin/tini", "--"]
+ENTRYPOINT ["/usr/local/bin/tini", "--"]
 
-#CMD /usr/local/bin/configureBclToFastq.pl \
-    #--input-dir $RUN_FOLDER/Data/Intensities/BaseCalls/ \
-    #--output-dir $OUTPUT_FOLDER/Unaligned \
-    #--fastq-cluster-count 0 \
-    #--mismatches $MISMATCHES \
-    #--no-eamss \
-    #--with-failed-reads \
- #&& make -j $CPU_NUM -C $OUTPUT_FOLDER/Unaligned/
+CMD /usr/local/bin/bcl2fastq \
+    --runfolder-dir $RUN_FOLDER \
+    --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
+    --fastq-cluster-count 0 \
+    --barcode-mismatches $MISMATCHES \
+    --with-failed-reads
 

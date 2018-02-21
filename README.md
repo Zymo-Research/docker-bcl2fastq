@@ -4,7 +4,7 @@ You can refer to the official [Bcl2fastq2 User Guide](https://support.illumina.c
 
 ## Quick Start
 
-Make sure `SampleSheet.csv` is located under `<run folder>`, and the user that runs `docker run` command on host machine has read permission to `<run folder>` and read/write permission to `<output folder>`.
+Make sure a valid `SampleSheet.csv` is located under `<run folder>`, and the user that runs `docker run` command on host machine has read permission to `<run folder>` and read/write permission to `<output folder>`.
 
 ```bash
 docker run -d --name bcl2fastq2 \

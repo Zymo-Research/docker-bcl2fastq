@@ -17,7 +17,6 @@ RUN curl -OsSL ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/
 ENV RUN_FOLDER /mnt/run
 ENV OUTPUT_FOLDER /mnt/output
 ENV MISMATCHES 1
-#ENV CPU_NUM 4
 
 # install tini - a tiny init process (PID 1) for containers
 # https://github.com/krallin/tini

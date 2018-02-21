@@ -18,9 +18,9 @@ Replace `<run folder>` and `<output folder>` with the real directory names on ho
 
 ```bash
 /usr/local/bin/bcl2fastq \
-    --runfolder-dir $RUN_FOLDER \
-    --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-    --barcode-mismatches $MISMATCHES \
+    --runfolder-dir /mnt/run \
+    --output-dir /mnt/output/Data/Intensities/BaseCalls \
+    --barcode-mismatches 1 \
     --with-failed-reads
 ```
 
@@ -31,7 +31,7 @@ Replace `<run folder>` and `<output folder>` with the real directory names on ho
 
 You can configure the execution of `bcl2fastq2` with the following Docker options.
 
-* `-e "MISMATCHES=0"` - Comma-delimited list of number of mismatches allowed for each read (for example: 1,1). If a single value is provide, all index reads will allow the same number mismatches.
+* `-e "MISMATCHES=1"` - Comma-delimited list of number of mismatches allowed for each read (for example: 1,1). If a single value is provide, all index reads will allow the same number mismatches.
 
 
 ## Custom Bcl2fastq2 Command
@@ -47,7 +47,8 @@ docker run -d --name bcl2fastq2 \
     /usr/local/bin/bcl2fastq \
         --runfolder-dir $RUN_FOLDER \
         --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-        --barcode-mismatches $MISMATCHES
+        --barcode-mismatches 2 \
+        --no-lane-splitting
 ```
 
 **Alternatively**, you can first start an interactive bash session.
@@ -66,7 +67,8 @@ And then execute `bcl2fastq` command in the shell. For example:
 /usr/local/bin/bcl2fastq \
     --runfolder-dir $RUN_FOLDER \
     --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-    --barcode-mismatches 2
+    --barcode-mismatches 2 \
+    --no-lane-splitting
 ```
 
 Use `ctrl-p + ctrl-q` to detach the tty without exiting the shell.
@@ -75,3 +77,5 @@ Use `ctrl-p + ctrl-q` to detach the tty without exiting the shell.
 ## Note
 
 * Run `docker logs <container name>` to fetch the logs of a container. Run `docker logs -f <container name>` to follow container log output real-time.
+
+* Please be aware that the format of SampleSheet used by Bcl2fastq2 is differnt from that of Bcl2fastq.

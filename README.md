@@ -46,9 +46,8 @@ docker run -d --name bcl2fastq2 \
     zymoresearch/bcl2fastq:2.17 \
     /usr/local/bin/bcl2fastq \
         --runfolder-dir $RUN_FOLDER \
-        --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-        --barcode-mismatches 2 \
-        --no-lane-splitting
+        --output-dir $OUTPUT_FOLDER \
+        --barcode-mismatches 0
 ```
 
 **Alternatively**, you can first start an interactive bash session.
@@ -61,14 +60,13 @@ docker run -it --name bcl2fastq2 \
     zymoresearch/bcl2fastq:2.17 bash
 ```
 
-And then execute `bcl2fastq` command in the shell. For example:
+And then execute `bcl2fastq2` command in the shell. For example:
 
 ```bash
 /usr/local/bin/bcl2fastq \
     --runfolder-dir $RUN_FOLDER \
-    --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-    --barcode-mismatches 2 \
-    --no-lane-splitting
+    --output-dir $OUTPUT_FOLDER \
+    --barcode-mismatches 0
 ```
 
 Use `ctrl-p + ctrl-q` to detach the tty without exiting the shell.

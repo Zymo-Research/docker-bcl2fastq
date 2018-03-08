@@ -1,5 +1,4 @@
-
-[![Docker Build Status](https://img.shields.io/docker/build/zymoresearch/bcl2fastq2.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq2/)
+[![Docker Build Status](https://img.shields.io/docker/build/zymoresearch/bcl2fastq2.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq2/) [![Docker Pulls](https://img.shields.io/docker/pulls/zymoresearch/bcl2fastq2.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq2/)
 
 # Dockerized Bcl2fastq-2.17
 

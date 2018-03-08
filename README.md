@@ -1,3 +1,6 @@
+
+[![Docker Build Status](https://img.shields.io/docker/build/zymoresearch/bcl2fastq2.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq2/)
+
 # Dockerized Bcl2fastq-2.17
 
 You can refer to the official [Bcl2fastq2 User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2_guide_15051736_v2.pdf) for more information.
@@ -11,7 +14,7 @@ docker run -d --name bcl2fastq2 \
     -u $( id -u $USER ):$( id -g $USER ) \
     -v <run folder>:/mnt/run \
     -v <output folder>:/mnt/output \
-    zymoresearch/bcl2fastq:2.17
+    zymoresearch/bcl2fastq2
 ```
 
 Replace `<run folder>` and `<output folder>` with the real directory names on host machine. The name of `<run folder>` may look something like `100723_EAS346_0188_FC626BWAAXX`. This will execute the following `bcl2fastq2` command in a container.
@@ -43,7 +46,7 @@ docker run -d --name bcl2fastq2 \
     -u $( id -u $USER ):$( id -g $USER ) \
     -v <run folder>:/mnt/run \
     -v <output folder>:/mnt/output \
-    zymoresearch/bcl2fastq:2.17 \
+    zymoresearch/bcl2fastq2 \
     /usr/local/bin/bcl2fastq \
         --runfolder-dir $RUN_FOLDER \
         --output-dir $OUTPUT_FOLDER \
@@ -57,7 +60,7 @@ docker run -it --name bcl2fastq2 \
     -u $( id -u $USER ):$( id -g $USER ) \
     -v <run folder>:/mnt/run \
     -v <output folder>:/mnt/output \
-    zymoresearch/bcl2fastq:2.17 bash
+    zymoresearch/bcl2fastq2 bash
 ```
 
 And then execute `bcl2fastq2` command in the shell. For example:

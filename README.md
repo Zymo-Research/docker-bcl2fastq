@@ -2,7 +2,7 @@
 
 # Dockerized Bcl2fastq-1.8.4
 
-You can refer to the official [Bcl2fastq User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq_letterbooklet_15038058brpmi.pdf) for more information.
+You can refer to the official [Bcl2fastq User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq_letterbooklet_15038058brpmi.pdf) for more information. Bcl2fastq v2.17 can be find at [zymoresearch/bcl2fastq2](https://hub.docker.com/r/zymoresearch/bcl2fastq2).
 
 ## Quick Start
 

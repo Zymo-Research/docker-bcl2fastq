@@ -2,7 +2,7 @@
 
 # Dockerized Bcl2fastq-2.17
 
-You can refer to the official [Bcl2fastq2 User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2_guide_15051736_v2.pdf) for more information.
+You can refer to the official [Bcl2fastq2 User Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2_guide_15051736_v2.pdf) for more information. Bcl2fastq v1.8.4 can be found at [zymoresearch/bcl2fastq](https://hub.docker.com/r/zymoresearch/bcl2fastq/).
 
 ## Quick Start
 
@@ -79,3 +79,5 @@ Use `ctrl-p + ctrl-q` to detach the tty without exiting the shell.
 * Run `docker logs <container name>` to fetch the logs of a container. Run `docker logs -f <container name>` to follow container log output real-time.
 
 * Please be aware that the format of Sample Sheet used by Bcl2fastq2 is different from that of Bcl2fastq.
+
+* Bcl2fastq2 defaults to 100% when processing demultiplexed data. Specify number of threads by `-p` option if computing resources allocated need to be limited.

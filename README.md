@@ -79,3 +79,5 @@ Use `ctrl-p + ctrl-q` to detach the tty without exiting the shell.
 * Run `docker logs <container name>` to fetch the logs of a container. Run `docker logs -f <container name>` to follow container log output real-time.
 
 * Please be aware that the format of Sample Sheet used by Bcl2fastq2 is different from that of Bcl2fastq.
+
+* Bcl2fastq2 defaults to 100% when processing demultiplexed data. Specify number of threads by `-p` option if computing resources allocated need to be limited.

@@ -1,36 +1,33 @@
-FROM centos:7
+FROM alpine:3.8
 
 MAINTAINER Mingda Jin
 
-RUN yum update -y \
- && yum install -y \
-        unzip \
- && yum clean all
+WORKDIR /tmp
 
-RUN curl -OsSL ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2.17.1.14-Linux-x86_64.zip \
- && unzip bcl2fastq2-v2.17.1.14-Linux-x86_64.zip \
- && yum -y --nogpgcheck install bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm \
- && yum clean all \
- && rm -f bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm \
- && rm -f bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
+# anyone knows how to install mcheck.h gracefully on Alpine?
+COPY mcheck.h /usr/include/
 
-ENV RUN_FOLDER /mnt/run
-ENV OUTPUT_FOLDER /mnt/output
-ENV MISMATCHES 1
+RUN apk --no-cache add \
+      alpine-sdk \
+      bash \
+      zlib-dev \
+      libstdc++ \
+ && wget ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2-20-0-tar.zip \
+ && unzip bcl2fastq2-v2-20-0-tar.zip \
+ && tar xzvf bcl2fastq2-v2.20.0.422-Source.tar.gz \
+ && ./bcl2fastq/src/configure --prefix=/usr/local/ \
+ && make \
+ && make install \
+ && rm -r /tmp/* \
+ && rm /usr/include/mcheck.h \
+ && apk --no-cache del \
+      alpine-sdk \
+      bash \
+      zlib-dev
 
-# install tini - a tiny init process (PID 1) for containers
-# https://github.com/krallin/tini
-# Although this is equivalent to passing the --init flag to 'docker run' command in Docker 1.13
-# and higher, installing tini is still needed if user is using old Docker versions. This can also
-# enforce containers running with a init process regardless of using the --init flag.
-RUN curl -o /usr/local/bin/tini -sSL https://github.com/krallin/tini/releases/download/v0.16.1/tini \
- && chmod +x /usr/local/bin/tini
+WORKDIR /
 
-ENTRYPOINT ["/usr/local/bin/tini", "--"]
+ENTRYPOINT ["bcl2fastq"]
 
-CMD /usr/local/bin/bcl2fastq \
-    --runfolder-dir $RUN_FOLDER \
-    --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
-    --barcode-mismatches $MISMATCHES \
-    --with-failed-reads
+CMD ["--version"]
 

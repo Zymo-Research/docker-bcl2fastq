@@ -18,6 +18,6 @@ docker run -d --name bcl2fastq \
         --no-lane-splitting
 ```
 
-Replace `<run folder>` and `<output folder>` with real directory names on a host machine. They don't have to be different folders.
+Replace `<run folder>` and `<output folder>` with real directory names on a host machine. They could be the same folder or different ones.
 
 Run `docker logs -f <container name>` to follow container log output. Use `ctrl-c` to detach.

@@ -25,3 +25,9 @@ docker run -d --name bcl2fastq \
 Replace `<run folder>` and `<output folder>` with real directory names on a host machine. They could be the same folder or different ones.
 
 Run `docker logs -f <container name>` to follow container log output. Use `ctrl-c` to detach.
+
+## Deployment
+
+This repository is connected with a [DockerHub repo](https://cloud.docker.com/u/zymoresearch/repository/docker/zymoresearch/bcl2fastq). 
+Automated build is configured and can be triggered by creating release tags on GitHub that match a certain regular expression pattern `/^v([0-9.]+)$/` (i.e. v2.20). 
+A successful build will create a new image with corresponding Docker tag as well as updating the `latest` image.

@@ -1,6 +1,6 @@
 # Illumina bcl2fastq Docker
 
-The official [Software Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2-v2-20-software-guide-15051736-03.pdf) is here.
+The official [Software Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2-v2-20-software-guide-15051736-03.pdf) is here. This image is built on Alpine so it's extremely lightweight.
 
 ## Quick Start
 

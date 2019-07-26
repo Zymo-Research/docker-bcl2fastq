@@ -1,19 +1,22 @@
-# bcl2fastq has been primarily developed and tested on CentOS 5, Illumina's
-# recommended and supported platform. However, CentOS 5 reached end-of-life
-# on March 31, 2017. To ensure the maximum compatibility, this image uses 7.
 FROM centos:7
 
 MAINTAINER Mingda Jin
 
-RUN curl -OsSL ftp://webdata:webdata@ussd-ftp.illumina.com/Downloads/Software/bcl2fastq/bcl2fastq-1.8.4-Linux-x86_64.rpm \
- && yum -y --nogpgcheck install bcl2fastq-1.8.4-Linux-x86_64.rpm \
+RUN yum update -y \
+ && yum install -y \
+        unzip \
+ && yum clean all
+
+RUN curl -OsSL ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2.17.1.14-Linux-x86_64.zip \
+ && unzip bcl2fastq2-v2.17.1.14-Linux-x86_64.zip \
+ && yum -y --nogpgcheck install bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm \
  && yum clean all \
- && rm -f bcl2fastq-1.8.4-Linux-x86_64.rpm
+ && rm -f bcl2fastq2-v2.17.1.14-Linux-x86_64.rpm \
+ && rm -f bcl2fastq2-v2.17.1.14-Linux-x86_64.zip
 
 ENV RUN_FOLDER /mnt/run
 ENV OUTPUT_FOLDER /mnt/output
 ENV MISMATCHES 1
-ENV CPU_NUM 4
 
 # install tini - a tiny init process (PID 1) for containers
 # https://github.com/krallin/tini
@@ -25,12 +28,9 @@ RUN curl -o /usr/local/bin/tini -sSL https://github.com/krallin/tini/releases/do
 
 ENTRYPOINT ["/usr/local/bin/tini", "--"]
 
-CMD /usr/local/bin/configureBclToFastq.pl \
-    --input-dir $RUN_FOLDER/Data/Intensities/BaseCalls/ \
-    --output-dir $OUTPUT_FOLDER/Unaligned \
-    --fastq-cluster-count 0 \
-    --mismatches $MISMATCHES \
-    --no-eamss \
-    --with-failed-reads \
- && make -j $CPU_NUM -C $OUTPUT_FOLDER/Unaligned/
+CMD /usr/local/bin/bcl2fastq \
+    --runfolder-dir $RUN_FOLDER \
+    --output-dir $OUTPUT_FOLDER/Data/Intensities/BaseCalls \
+    --barcode-mismatches $MISMATCHES \
+    --with-failed-reads
 

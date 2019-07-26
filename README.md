@@ -6,6 +6,8 @@ The official [Software Guide](https://support.illumina.com/content/dam/illumina-
 
 Make sure a sample sheet (`SampleSheet.csv`) is in place. The default location is the root run folder, but you can use the command `--sample-sheet` to specify any CSV file in any location.
 
+Example:
+
 ```bash
 docker run -d --name bcl2fastq \
     -v <run folder>:/mnt/run \

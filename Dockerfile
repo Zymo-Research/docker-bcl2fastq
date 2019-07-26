@@ -30,4 +30,3 @@ WORKDIR /
 ENTRYPOINT ["bcl2fastq"]
 
 CMD ["--version"]
-

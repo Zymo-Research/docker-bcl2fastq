@@ -1,3 +1,5 @@
+[![Docker Build Status](https://img.shields.io/docker/build/zymoresearch/bcl2fastq.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq/) [![Docker Pulls](https://img.shields.io/docker/pulls/zymoresearch/bcl2fastq.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq/)
+
 # Illumina bcl2fastq Docker
 
 The official [Software Guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2-v2-20-software-guide-15051736-03.pdf) is here. This image is built on Alpine so it's extremely lightweight.

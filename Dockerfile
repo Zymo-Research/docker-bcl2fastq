@@ -14,7 +14,8 @@ RUN apk --no-cache add \
       libstdc++ \
  && wget ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq/bcl2fastq2-v2-20-0-tar.zip \
  && unzip bcl2fastq2-v2-20-0-tar.zip \
- && tar xzvf bcl2fastq2-v2.20.0.422-Source.tar.gz \
+ && gunzip bcl2fastq2-v2.20.0.422-Source.tar.gz \
+ && tar xvf bcl2fastq2-v2.20.0.422-Source.tar \
  && ./bcl2fastq/src/configure --prefix=/usr/local/ \
  && make \
  && make install \

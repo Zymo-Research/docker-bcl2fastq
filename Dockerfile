@@ -1,10 +1,10 @@
-FROM alpine:3.10
+FROM alpine:3.14
 
-MAINTAINER Mingda Jin
+LABEL maintainer="Mingda Jin<mjin@zymoresearch.com>"
 
 WORKDIR /tmp
 
-# anyone knows how to install mcheck.h gracefully on Alpine?
+# Install missing mcheck.h in alpine
 COPY mcheck.h /usr/include/
 
 RUN apk --no-cache add \
@@ -30,3 +30,4 @@ WORKDIR /
 ENTRYPOINT ["bcl2fastq"]
 
 CMD ["--version"]
+

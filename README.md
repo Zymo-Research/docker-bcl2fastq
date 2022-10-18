@@ -13,6 +13,20 @@ The Illumina bcl2fastq2 Conversion Software demultiplexes sequencing data and co
 ## Demultiplex to the same folder
 
 ```bash
-$ docker run -v <runfolder-dir>:/mnt/run zymoresearch/bcl2fastq:2.20 --runfolder-dir /mnt/run
+$ docker run -d -v <runfolder-dir>:/mnt/run zymoresearch/bcl2fastq:2.20 --runfolder-dir /mnt/run
 ```
-Replace `<runfolder-dir>` with the real run folder path on the host machine.
+Replace `<runfolder-dir>` with the real run folder directory on the host machine.
+
+## Demultiplex to a different location
+
+FASTQ files can be demultiplexed outside the run folder such as a separate NAS storage drive.
+
+```bash
+$ docker run -d \
+    -v <runfolder-dir>:/mnt/run \
+    -v <output-dir>:/mnt/output \
+    zymoresearch/bcl2fastq:2.20 \
+        --runfolder-dir /mnt/run \
+        --output-dir /mnt/output
+```
+Replace `<runfolder-dir>` and `<output-dir>` with the corresponding directories on the host machine.

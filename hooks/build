@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export DOCKER_CLI_EXPERIMENTAL=enabled
+
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+docker buildx create --use --driver docker-container
+docker buildx inspect --bootstrap
+docker buildx build --platform linux/amd64 -f $DOCKERFILE_PATH -t $IMAGE_NAME . --push
+# docker buildx build --platform linux/amd64,linux/arm64 -f $DOCKERFILE_PATH -t $IMAGE_NAME . --push

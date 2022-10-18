@@ -1,4 +1,4 @@
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/zymoresearch/bcl2fastq) ![Docker Pulls](https://img.shields.io/docker/pulls/zymoresearch/bcl2fastq)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/zymoresearch/bcl2fastq) ![Docker Pulls](https://img.shields.io/docker/pulls/zymoresearch/bcl2fastq) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/zymoresearch/bcl2fastq/latest)
 
 # Supported tags and respective `Dockerfile` links
 
@@ -8,7 +8,7 @@
 
 The Illumina bcl2fastq2 Conversion Software demultiplexes sequencing data and converts base call (BCL) files into FASTQ files. For more information, please see the latest [software guide](https://support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/bcl2fastq/bcl2fastq2-v2-20-software-guide-15051736-03.pdf).
 
-This image is built based on Alpine Linux. It's very lightweight with only 118M in size.
+This image is built based on Alpine Linux. It's very lightweight with only 36M in size.
 
 # How to use this image
 

@@ -27,6 +27,6 @@ This is useful when FASTQ files need to be demultiplexed and stored separately e
 
 ```bash
 $ docker run -d -v <runfolder-dir>:/mnt/run -v <output-dir>:/mnt/output zymoresearch/bcl2fastq \
-    --runfolder-dir /mnt/run --output-dir /mnt/output
+      --runfolder-dir /mnt/run --output-dir /mnt/output
 ```
 Replace `<runfolder-dir>` and `<output-dir>` with the corresponding directories on the host machine.

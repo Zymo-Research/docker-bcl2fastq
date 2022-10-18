@@ -1,4 +1,4 @@
-[![Docker Build Status](https://img.shields.io/docker/build/zymoresearch/bcl2fastq.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq/) [![Docker Pulls](https://img.shields.io/docker/pulls/zymoresearch/bcl2fastq.svg)](https://hub.docker.com/r/zymoresearch/bcl2fastq/)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/zymoresearch/bcl2fastq) ![Docker Pulls](https://img.shields.io/docker/pulls/zymoresearch/bcl2fastq)
 
 # Illumina bcl2fastq Docker
 

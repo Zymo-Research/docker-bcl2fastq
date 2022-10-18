@@ -12,7 +12,7 @@ This image is built based on Alpine Linux. It's very lightweight with only 118M 
 
 # How to use this image
 
-In the following examples, the `-d` option of the `docker run` command will run container in background. Please use `docker logs -f <container name>` to follow container log.
+In the following examples, the `-d` option of the `docker run` command will run container in background. Please use `docker logs -f <container name>` to fetch the container log.
 
 ## Demultiplex to the same run folder
 

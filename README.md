@@ -12,20 +12,21 @@ This image is built based on Alpine Linux. It's very lightweight with only 118M 
 
 # How to use this image
 
+In the following examples, the `-d` option of the `docker run` command will run container in background. Please use `docker logs -f <container name>` to follow container log.
+
 ## Demultiplex to the same run folder
 
 ```bash
-$ docker run -v <runfolder-dir>:/mnt/run zymoresearch/bcl2fastq:2.20 --runfolder-dir /mnt/run
+$ docker run -d -v <runfolder-dir>:/mnt/run zymoresearch/bcl2fastq --runfolder-dir /mnt/run
 ```
 Replace `<runfolder-dir>` with the real run folder directory on the host machine.
 
 ## Demultiplex to a different location
 
-This is useful when FASTQ files need to be demultiplexed and stored separately e.g. NAS storage device.
+This is useful when FASTQ files need to be demultiplexed and stored separately e.g. in a NAS storage device.
 
 ```bash
-$ docker run -v <runfolder-dir>:/mnt/run -v <output-dir>:/mnt/output zymoresearch/bcl2fastq:2.20 \
-    --runfolder-dir /mnt/run \
-    --output-dir /mnt/output
+$ docker run -d -v <runfolder-dir>:/mnt/run -v <output-dir>:/mnt/output zymoresearch/bcl2fastq \
+    --runfolder-dir /mnt/run --output-dir /mnt/output
 ```
 Replace `<runfolder-dir>` and `<output-dir>` with the corresponding directories on the host machine.
